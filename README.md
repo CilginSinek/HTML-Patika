@@ -1,1 +1,1 @@
-# HTML-Patika Ödevi
+# HTML-CSS-Patika Ödevi
