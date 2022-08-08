@@ -6,7 +6,6 @@
   font-family: arial,sans-serif;
   font-size: 13px;
   margin-right: 0;
-
   height: 100%;
 }
 
@@ -28,7 +27,6 @@
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  
 }
 
 .container {
@@ -126,13 +124,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3rem 10rem 0 30rem;
-  height: 50px;
-  width: 280px;
+  width: 100%;
 }
 
 .googlesearch {
-  margin: 30px 30px;
+  margin: 30px 8px;
   padding: 0 16px;
   line-height: 27px;
   min-width: 54px;
@@ -145,29 +141,24 @@
   color: #5f6368;
   font-size: 14px;
   height: 36px;
-  position: absolute;
-  
-
 }
 
 .googlesearch:hover {
   box-shadow: 0 2px 3px 0 rgba(0,0,0,0.24), 0 2px 5px 0 rgba(0,0,0,0.19);
   transition-duration: 0.5s;
 }
+
 #sesli{
   width: 39;
   height: 39;
   background-image: url(https://c.neh.tw/thumb/f/720/m2i8d3H7Z5b1d3i8.jpg);
-
 }
 
-
 .feelinglucky {
-
-  margin: 30px 30px;
+  margin: 30px 8px;
   padding: 0 16px;
   line-height: 27px;
-  min-width: 54px;
+  min-width: 200px;
   text-align: center;
   cursor: pointer;
   user-select: none;
@@ -177,10 +168,8 @@
   color: #5f6368;
   font-size: 14px;
   height: 36px;
-  width: 30px;
-  position: absolute;
-
 }
+
 .feelinglucky:hover{
   box-shadow: 0 2px 3px 0 rgba(0,0,0,0.24), 0 2px 5px 0 rgba(0,0,0,0.19);
   transition-duration: 0.5s;
