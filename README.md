@@ -1,2 +1,2 @@
 # HTML-CSS-JavaScript-Patika Ödevi
-Google sayfalarındaki Çoğu buton çalışmaktadır.
+Bir sürü ödevimin olduğu bir repodur. Koa.js de var.
