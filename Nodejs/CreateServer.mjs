@@ -1,6 +1,6 @@
-const http = require('http');
-    port = 5000,
-    server = http.createServer((req, res) => {
+import { createServer } from 'http';
+    const port = 5000,
+    server = createServer((req, res) => {
         const url = req.url;
         if(url === "/"){
             res.writeHead(200, { "Content-Type": "text/html" });
@@ -20,6 +20,4 @@ const http = require('http');
         }
         res.end();
     });
-
-
 server.listen(port);
