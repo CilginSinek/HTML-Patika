@@ -1,0 +1,129 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.search{
+  height: 40px;
+  width: 350px;
+  border-radius: 20vh;
+  font-size: large;
+  padding: 10px;
+}
+.NoteForm{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  border: solid black 1px;
+}
+.formArea{
+  width: 60vh;
+  height: 120px;
+}
+.formbuttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}
+.noteInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+textarea{
+  resize: none;
+  border: 0;
+  font-size: larger;
+}
+textarea:focus{
+  outline: none;
+}
+.noteCard{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 600px;
+  height: auto;
+  border: 1px solid black;
+  padding: 10px;
+  box-shadow: 5px 10px black;
+  margin-top: 30px;
+}
+.noteText{
+  max-width: 400px;
+  display: block;
+  word-wrap:break-word;
+  white-space: normal;
+}
+.delete{
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  padding-bottom: 30px;
+  padding-right: 25px;
+  background-color: black;
+  color: white;
+}
+.custom-radios div {
+  display: inline-block;
+}
+.custom-radios input[type="radio"] {
+  display: none;
+}
+.custom-radios input[type="radio"] + label {
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.custom-radios input[type="radio"] + label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 44px;
+}
+.custom-radios input[type="radio"] + label span img {
+  opacity: 0;
+  transition: all .3s ease;
+}
+.custom-radios input[type="radio"]#color-1 + label span {
+  background-color: #2ecc71;
+}
+.custom-radios input[type="radio"]#color-2 + label span {
+  background-color: #3498db;
+}
+.custom-radios input[type="radio"]#color-3 + label span {
+  background-color: #f1c40f;
+}
+.custom-radios input[type="radio"]#color-4 + label span {
+  background-color: #e74c3c;
+}
+.custom-radios input[type="radio"]:checked + label span img {
+  opacity: 1;
+}
+.color-1{
+  background-color: #2ecc71;
+}
+.color-2{
+  background-color: #3498db;
+}
+.color-3{
+  background-color: #f1c40f;
+}
+.color-4{
+  background-color: #e74c3c;
+}
+
+
