@@ -2,6 +2,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+//post get methodlarinin uygulanacagi endpoint: localhost/notes
 const baseUrl = ""
 
 //not getirici

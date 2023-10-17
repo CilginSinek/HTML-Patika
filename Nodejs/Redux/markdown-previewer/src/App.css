@@ -1,0 +1,45 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.area{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap:30px
+}
+textarea{
+  width: 480px;
+  height: 390px;
+  color: black;
+  background-color: yellow;
+  padding: 0px;
+  border: 0px;
+  resize:none;
+}
+textarea:focus{
+  outline: black;
+}
+.card{
+  width: 500px;
+  height: 400px;
+  color: black;
+  background-color: yellow;
+  box-shadow: 5px 10px black;
+  overflow: auto;
+}

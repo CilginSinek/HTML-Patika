@@ -35,7 +35,7 @@ function Notes() {
 
   return (
     <div className="CardBox">
-      {thisNote.map((item, index) => (
+      {thisNote !== 0 && thisNote.map((item, index) => (
         <Note key={index} note={item} />
       ))}
     </div>
