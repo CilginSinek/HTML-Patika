@@ -1,0 +1,55 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.langDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+p {
+  margin: 0px;
+}
+.textsArea {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 200px;
+  max-width: 800px;
+  min-width: 445px;
+  background-color: brown;
+  gap: 30px;
+  padding: 3px;
+}
+.word {
+  background-color: black;
+  border-radius: 10px;
+  height: 30px;
+  padding: 10px;
+}
+.selectedWord {
+  background-color: rgb(80, 52, 52);
+}
+.Wrong {
+  background-color: red;
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+  }
+  .langDiv {
+    flex-direction: column;
+  }
+}
