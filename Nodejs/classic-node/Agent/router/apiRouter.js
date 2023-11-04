@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.route("/add").post(addPortfolio);
 router.route("/edit").put(editPortfolio);
-router.route("/delete/:id").delete(deletePortfolio);
+router.route("/delete/:id").get(deletePortfolio);
 
 module.exports = router;
