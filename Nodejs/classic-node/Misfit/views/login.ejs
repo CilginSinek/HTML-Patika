@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('partials/_head') -%>
+   <!-- body -->
+   <body class="main-layout">
+      <%- include('partials/_navigate') -%>
+      <div class="back_re">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>Login</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--  contact -->
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <form id="request" action="/auth/login" method="POST" class="main_form">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Email" type="email" name="email"> 
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Password" type="password" name="password">                          
+                        </div>
+                        <div class="col-md-12">
+                           <button type="submit" class="send_btn">Login</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <%- include('partials/_footer') -%>
+   </body>
+</html>

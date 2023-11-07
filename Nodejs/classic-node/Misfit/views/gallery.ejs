@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('partials/_head') -%>
+   <!-- body -->
+   <body class="main-layout">
+      <%- include('partials/_navigate') -%>
+      <div class="back_re">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>Gallery</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- gallery -->
+      <div  class="gallery">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <p>The point of using Lorem Ipsum is that it has a more-or-less</p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="tz-gallery">
+                  <div class="col-sm-12">
+                     <div class="row">
+                        <% gallery.forEach((photo)=>{%> 
+                        <div class="col-sm-6 col-md-4">
+                           <a class="gallery_img" href="<%= photo %>">
+                           <img src="<%= photo %>" alt="<%= photo.split('/uploads/') %>">
+                           </a>
+                        </div>
+                        <% })%>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <%- include('partials/_footer') -%>
+   </body>
+</html>

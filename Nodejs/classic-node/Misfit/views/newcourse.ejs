@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('partials/_head') -%>
+   <!-- body -->
+   <body class="main-layout">
+      <%- include('partials/_navigate') -%>
+      <div class="back_re">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>Create Course</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--  contact -->
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <form id="request" action="/api/createCourse" method="POST"  encType="multipart/form-data" class="main_form">
+                     <div class="row">
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Course Name" type="text" name="name" required> 
+                        </div>
+                        <div class="col-md-12">
+                           <input type="file" id="file" name="file" required> 
+                        </div>
+                        <div class="col-md-12">
+                           <textarea class="textarea" placeholder="Description" type="text" name="dec" Message="Name" required>Description</textarea>
+                        </div>
+                        <div class="col-md-12">
+                           <button type="submit" class="send_btn">Send</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <%- include('partials/_footer') -%>
+   </body>
+</html>

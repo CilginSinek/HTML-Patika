@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('partials/_head') -%>
+   <!-- body -->
+   <body class="main-layout">
+      <%- include('partials/_navigate') -%>
+      <div class="back_re">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                  <h2><%= user.name %>, <%= user.role %></h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- services -->
+      <div  class="services">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <p> Courses </p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <% courses.forEach((course)=>{ %>
+               <div class="col-md-4">
+                  <div class="se_img">
+                     <figure><a href="/course/<%= course.slug %>" ><img src="<%= course.file %>" alt="<%= course.name %>"/></a></figure>
+                  </div>
+               </div>
+               <%})%>
+            </div>
+         </div>
+      </div>
+      <%- include('partials/_footer') -%>
+   </body>
+</html>
