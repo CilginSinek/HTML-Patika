@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/_head') -%>
+  <!-- body -->
+  <body class="main-layout">
+    <%- include('partials/_navigate') -%>
+    <div class="back_re">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="title">
+              <h2>Admin Panel</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  contact -->
+    <div id="contact" class="contact">
+      <div class="container">
+        <div class="row">
+          <div>
+            <h4>Users</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Mail</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Delete/See</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% users.forEach((user)=>{%>
+                <tr>
+                  <td><%= user._id %></td>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.role %></td>
+                  <td>
+                    <a
+                      class="btn btn-danger"
+                      href="/api/deleteUser/<%= user._id %>"
+                      >Delete</a
+                    ><a class="btn btn-info" href="/user/<%= user.slug %>"
+                      >See</a
+                    >
+                  </td>
+                </tr>
+                <%})%>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h4>Courses</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Create Time</th>
+                  <th scope="col">Delete/See</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% courses.forEach((course)=>{ %>
+                <tr>
+                  <td><%= course.name %></td>
+                  <td>
+                    <a href="<%= course.author.slug %>"
+                      ><%= course.author.name %></a
+                    >
+                  </td>
+                  <td><%= course.createAt %></td>
+                  <td>
+                    <a
+                      class="btn btn-danger"
+                      href="/api/deleteCourse/<%= course._id %>"
+                      >Delete</a
+                    >
+                    <a class="btn btn-info" href="/course/<%= course.slug %>"
+                      >See</a
+                    >
+                  </td>
+                </tr>
+                <% })%>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/_footer') -%>
+  </body>
+</html>

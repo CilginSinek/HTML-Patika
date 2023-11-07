@@ -9,9 +9,9 @@ exports.enroleCourse = async (req, res) => {
   const courseId = await Course.findOne({ slug: req.params.slug });
   if (user.courses.includes(courseId._id)) {
     res.status(404).send("Course Already enroled");
-  } else {;
-    user.courses.push({_id:courseId._id});
-    await user.save()
+  } else {
+    user.courses.push({ _id: courseId._id });
+    await user.save();
     res.status(201).redirect(`/course/${req.params.slug}`);
   }
 };
@@ -21,7 +21,7 @@ exports.quitCourse = async (req, res) => {
   if (!user.courses.includes(courseId._id)) {
     res.status(404).send("Course Already Quited");
   } else {
-    user.courses.pull({_id:courseId._id});
+    user.courses.pull({ _id: courseId._id });
     await user.save();
     res.status(201).redirect(`/course/${req.params.slug}`);
   }
@@ -39,7 +39,7 @@ exports.createCourse = async (req, res) => {
     uploadeImage.mv(uploadPath, async () => {
       await Course.create({
         ...req.body,
-        author:req.session.userID,
+        author: req.session.userID,
         file: "/uploads/" + uploadeImage.name,
       });
       res.status(201).redirect("/");
@@ -69,4 +69,35 @@ exports.mail = async (req, res) => {
     })
     .then(() => res.status(201).redirect("/"))
     .catch((error) => res.status(404).send(error));
+};
+exports.deleteCourse = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    // Kursu silmek istediğiniz tüm kullanıcıları bulun
+    const usersToUpdate = await User.find({ courses: course._id });
+
+    // Her bir kullanıcının courses dizisinden kursu kaldırın ve kaydedin
+    for (const user of usersToUpdate) {
+      user.courses = user.courses.filter(
+        (course) => course.toString() !== courseId
+      );
+      await user.save();
+    }
+    await Course.findByIdAndDelete(req.params.id);
+    res.status(201).redirect("/admin");
+  } catch (error) {
+    res.status(400).redirect("/admin");
+  }
+};
+exports.deleteUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (user.role === "Trainer") {
+      await Course.deleteMany({ author: user._id });
+    }
+    await User.findOneAndDelete({ _id: user._id });
+    res.status(201).redirect("/admin");
+  } catch (error) {
+    res.status(400).redirect("/admin");
+  }
 };

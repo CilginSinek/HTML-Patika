@@ -51,8 +51,11 @@ exports.getGallery = (req, res) => {
   });
   res.render("gallery", { gallery: galleryArr, page: "gallery" });
 };
-exports.addCoursePage = async (req, res) => {
-  const userID = await User.findById(req.session.userID)._id;
-  res.render("newcourse", { page: "newcourse", userID });
+exports.addCoursePage = (req, res) => {
+  res.render("newcourse", { page: "newcourse" });
 };
-exports.adminPage = async (req, res) => {};
+exports.adminPage = async (req, res) => {
+  const users= await User.find();
+  const courses = await Course.find().populate("author", "+name");
+  res.render("admin",{page:"admin",users,courses})
+};
