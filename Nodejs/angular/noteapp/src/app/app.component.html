@@ -1,0 +1,42 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<main class="main">
+  <div class="content">
+    <div>
+      <button (click)="onNewTask()">Add</button>
+    </div>
+    <ul>
+      <li *ngFor="let task of tasks; index as i">
+        <div>
+          <small>{{ formatDate(task.date) }}</small>
+          <button (click)="deleteTask(task.id)">Delete</button>
+        </div>
+        <markdown
+          [data]="task.task"
+          (click)="editTask(task.id)"
+          [ngStyle]="{ display: task.isEdit ? 'none' : 'block' }"
+        ></markdown>
+        <p contenteditable="true"(keydown)="changeTask($event, task.id)" [ngStyle]="{ display: !task.isEdit ? 'none' : 'block' }">
+          {{ task.task }}
+        </p>
+      </li>
+    </ul>
+  </div>
+</main>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet />
