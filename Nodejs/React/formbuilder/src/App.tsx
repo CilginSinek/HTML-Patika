@@ -1,18 +1,29 @@
-import { useState } from 'react';
-import './App.css'
-import FormList from './components/FormList'
-import InputList from './components/InputList'
+import { useState } from "react";
+import "./App.css";
+import FormList from "./components/FormList";
+import InputList from "./components/InputList";
+import EditItem from "./components/EditItem";
+import FormType from "./types/FormElement";
+import PrevForm from "./components/PrevForm";
 
 function App() {
-  const [dragedItem, setDragedItem] = useState<any | null>(null);
+  const [editItem, setEditItem] = useState<any>(null);
+  const [formItems, setFormItems] = useState<FormType[]>([]);
+  const [see, setSee] = useState<boolean>(false);
 
   return (
-    <div style={{display:"flex",flexDirection:"row"}}>
-    <FormList FormObjs={[]} setDragedItem={setDragedItem} dragedItem={dragedItem}/>
-    <InputList setDragedItem={setDragedItem} />
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      {editItem != null && <EditItem formItem={editItem} />}
+      <FormList
+        FormObjs={formItems}
+        setFormObjs={setFormItems}
+        setEditItem={setEditItem}
+        setSee={setSee}
+      />
+      <InputList />
+      {see && <PrevForm items={formItems} />}
     </div>
-  )
+  );
 }
 
-
-export default App
+export default App;

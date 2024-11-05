@@ -1,0 +1,16 @@
+[
+    {"type":"Header Text", "value":"<h1></h1"},
+    {"type":"Paragraph", "value":"<p></p>"},
+    {"type":"Dropdown", "value":"<select><option></option></select>"},
+    {"type":"Radio", "value":"<input type='radio' />"},
+    {"type":"Checkbox", "value":"<input type='checkbox' />"},
+    {"type":"Multiselect", "value":"<select multiple></select>"},
+    {"type":"Number", "value":"<input type='number' />"},
+    {"type":"Phone", "value":"<input type='tel' />"},
+    {"type":"File", "value":"<input type='file' />"},
+    {"type":"Range", "value":"<input type='range' />"},
+    {"type":"Rating", "value":"<input type='range' />"},
+    {"type":"Text", "value":"<input type='text' />"},
+    {"type":"Email", "value":"<input type='email' />"},
+    {"type":"Date", "value":"<input type='date' />"}
+]
