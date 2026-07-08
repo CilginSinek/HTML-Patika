@@ -205,7 +205,7 @@ function App() {
 // Form to add a new event
 function AddEventForm({ onSuccess }) {
   const { data: metaData } = useQuery(GET_META_DATA);
-  const [addEvent] = useMutation(ADD_EVENT);
+  const [addEvent, { loading: addingEvent }] = useMutation(ADD_EVENT);
 
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
@@ -244,30 +244,30 @@ function AddEventForm({ onSuccess }) {
       <h3>Yeni Etkinlik Ekle</h3>
       <div className="form-group">
         <label>Başlık</label>
-        <input type="text" value={title} onChange={e => setTitle(e.target.value)} required />
+        <input type="text" value={title} onChange={e => setTitle(e.target.value)} disabled={addingEvent} required />
       </div>
       <div className="form-group">
         <label>Açıklama</label>
-        <textarea value={desc} onChange={e => setDesc(e.target.value)} required />
+        <textarea value={desc} onChange={e => setDesc(e.target.value)} disabled={addingEvent} required />
       </div>
       <div className="form-row">
         <div className="form-group">
           <label>Tarih</label>
-          <input type="date" value={date} onChange={e => setDate(e.target.value)} required />
+          <input type="date" value={date} onChange={e => setDate(e.target.value)} disabled={addingEvent} required />
         </div>
         <div className="form-group">
           <label>Başlangıç</label>
-          <input type="time" value={from} onChange={e => setFrom(e.target.value)} required />
+          <input type="time" value={from} onChange={e => setFrom(e.target.value)} disabled={addingEvent} required />
         </div>
         <div className="form-group">
           <label>Bitiş</label>
-          <input type="time" value={to} onChange={e => setTo(e.target.value)} required />
+          <input type="time" value={to} onChange={e => setTo(e.target.value)} disabled={addingEvent} required />
         </div>
       </div>
       <div className="form-row">
         <div className="form-group">
           <label>Etkinlik Sahibi</label>
-          <select value={userId} onChange={e => setUserId(e.target.value)} required>
+          <select value={userId} onChange={e => setUserId(e.target.value)} disabled={addingEvent} required>
             <option value="">Seçin</option>
             {metaData?.users.map(u => (
               <option key={u.id} value={u.id}>{u.username}</option>
@@ -276,7 +276,7 @@ function AddEventForm({ onSuccess }) {
         </div>
         <div className="form-group">
           <label>Konum</label>
-          <select value={locationId} onChange={e => setLocationId(e.target.value)} required>
+          <select value={locationId} onChange={e => setLocationId(e.target.value)} disabled={addingEvent} required>
             <option value="">Seçin</option>
             {metaData?.locations.map(l => (
               <option key={l.id} value={l.id}>{l.name}</option>
@@ -284,7 +284,9 @@ function AddEventForm({ onSuccess }) {
           </select>
         </div>
       </div>
-      <button type="submit" className="submit-btn">Etkinliği Oluştur</button>
+      <button type="submit" className="submit-btn" disabled={addingEvent}>
+        {addingEvent ? "Etkinlik Oluşturuluyor..." : "Etkinliği Oluştur"}
+      </button>
     </form>
   );
 }
@@ -295,7 +297,7 @@ function EventDetail({ id }) {
     variables: { id },
   });
   const { data: metaData } = useQuery(GET_META_DATA);
-  const [addParticipant] = useMutation(ADD_PARTICIPANT);
+  const [addParticipant, { loading: addingParticipant }] = useMutation(ADD_PARTICIPANT);
   const [selectedUser, setSelectedUser] = useState('');
 
   // Subscribe to real-time participants updates for this event
@@ -388,7 +390,7 @@ function EventDetail({ id }) {
         <form className="add-participant-form" onSubmit={handleAddParticipant}>
           <strong>👥 Katılımcı Ekle</strong>
           <div className="form-row">
-            <select value={selectedUser} onChange={e => setSelectedUser(e.target.value)} required>
+            <select value={selectedUser} onChange={e => setSelectedUser(e.target.value)} disabled={addingParticipant} required>
               <option value="">Kullanıcı Seçin</option>
               {metaData?.users
                 .filter(u => !event.participants.some(p => p.id === u.id))
@@ -396,7 +398,9 @@ function EventDetail({ id }) {
                   <option key={u.id} value={u.id}>{u.username}</option>
                 ))}
             </select>
-            <button type="submit" className="add-participant-btn">Ekle</button>
+            <button type="submit" className="add-participant-btn" disabled={addingParticipant}>
+              {addingParticipant ? "Ekleniyor..." : "Ekle"}
+            </button>
           </div>
         </form>
       </div>
